@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://cy02ok7c33yhc"]
+
+[ext_resource type="Script" path="res://Scenes/Doors/doors.gd" id="1_c06ve"]
+[ext_resource type="Texture2D" uid="uid://ca001hnibycgu" path="res://Scenes/Doors/doors.png" id="1_jti8n"]
+[ext_resource type="Texture2D" uid="uid://bm5gql4my2qq8" path="res://Scenes/Doors/doors_opened.png" id="3_bss2l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2n5mc"]
+size = Vector2(68.5, 76.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhy1p"]
+atlas = ExtResource("1_jti8n")
+region = Rect2(0, 0, 640, 703)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fg37"]
+atlas = ExtResource("3_bss2l")
+region = Rect2(0, 0, 640, 703)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l20kd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhy1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fg37")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FireDoor" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_c06ve")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("1_jti8n")
+region_enabled = true
+region_rect = Rect2(0, 0, 638, 703)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.25, -0.25)
+shape = SubResource("RectangleShape2D_2n5mc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.11, 0.11)
+sprite_frames = SubResource("SpriteFrames_l20kd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://clhp30x8w3kxp"]
+
+[ext_resource type="Script" path="res://Scenes/game.gd" id="1_4nfex"]
+[ext_resource type="PackedScene" uid="uid://bw2ijt1xonk3c" path="res://Scenes/Levels/level_1.tscn" id="2_qaw8b"]
+[ext_resource type="PackedScene" uid="uid://dit6f6p5scp3b" path="res://Scenes/Menu/menu.tscn" id="4_qscby"]
+[ext_resource type="FontFile" uid="uid://deo1wopkephyy" path="res://brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="12_kafjo"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_4nfex")
+
+[node name="Level1" parent="." instance=ExtResource("2_qaw8b")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="WinLabel" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -394.0
+offset_top = -25.5
+offset_right = 394.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("12_kafjo")
+theme_override_font_sizes/font_size = 50
+text = "Congrats, you won"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" parent="." instance=ExtResource("4_qscby")]

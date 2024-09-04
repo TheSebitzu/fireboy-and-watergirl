@@ -1,0 +1,125 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0euf2jf6dgw5"]
+
+[ext_resource type="Script" path="res://Scenes/Menu/levels.gd" id="1_kfk4e"]
+[ext_resource type="Texture2D" uid="uid://drx6hkfsahxom" path="res://Scenes/Menu/menu_bg.png" id="2_vg5h8"]
+[ext_resource type="Texture2D" uid="uid://cgdnmbrdpf177" path="res://Scenes/Menu/Buttons/button.png" id="3_drl5x"]
+[ext_resource type="PackedScene" uid="uid://3s1pfnefku3x" path="res://Scenes/Menu/Buttons/main_menu_button.tscn" id="4_sjnqi"]
+
+[node name="Levels" type="Node2D"]
+script = ExtResource("1_kfk4e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(464.75, 324.25)
+scale = Vector2(1.45164, 1.35031)
+texture = ExtResource("2_vg5h8")
+
+[node name="Level1" type="Node2D" parent="."]
+
+[node name="Level1Button" type="TextureButton" parent="Level1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 71.0
+offset_top = 304.0
+offset_right = 271.0
+offset_bottom = 504.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_drl5x")
+
+[node name="Level1Label" type="Label" parent="Level1"]
+offset_left = 94.0
+offset_top = 340.0
+offset_right = 148.0
+offset_bottom = 363.0
+text = "Level 1"
+
+[node name="Level2" type="Node2D" parent="."]
+
+[node name="Level2Button" type="TextureButton" parent="Level2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 316.0
+offset_top = 184.0
+offset_right = 516.0
+offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_drl5x")
+
+[node name="Level2Label" type="Label" parent="Level2"]
+offset_left = 340.0
+offset_top = 220.0
+offset_right = 394.0
+offset_bottom = 243.0
+text = "Level 2"
+
+[node name="Level3" type="Node2D" parent="."]
+
+[node name="Level3Button" type="TextureButton" parent="Level3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 497.0
+offset_top = 421.0
+offset_right = 697.0
+offset_bottom = 621.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_drl5x")
+
+[node name="Level3Label" type="Label" parent="Level3"]
+offset_left = 520.0
+offset_top = 457.0
+offset_right = 574.0
+offset_bottom = 480.0
+text = "Level 3"
+
+[node name="Level4" type="Node2D" parent="."]
+
+[node name="Level4Button" type="TextureButton" parent="Level4"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 685.0
+offset_top = 183.0
+offset_right = 885.0
+offset_bottom = 383.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_drl5x")
+
+[node name="Level4Label" type="Label" parent="Level4"]
+offset_left = 708.0
+offset_top = 219.0
+offset_right = 762.0
+offset_bottom = 242.0
+text = "Level 4"
+
+[node name="MainMenuButton" parent="." instance=ExtResource("4_sjnqi")]
+
+[connection signal="pressed" from="Level1/Level1Button" to="." method="_on_level_1_button_pressed"]
+[connection signal="pressed" from="Level2/Level2Button" to="." method="_on_level_2_button_pressed"]
+[connection signal="pressed" from="Level3/Level3Button" to="." method="_on_level_3_button_pressed"]
+[connection signal="pressed" from="Level4/Level4Button" to="." method="_on_level_4_button_pressed"]

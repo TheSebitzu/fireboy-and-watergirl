@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://dit6f6p5scp3b"]
+
+[ext_resource type="Script" path="res://Scenes/Menu/menu.gd" id="1_dt80k"]
+[ext_resource type="Texture2D" uid="uid://drx6hkfsahxom" path="res://Scenes/Menu/menu_bg.png" id="1_xip3u"]
+[ext_resource type="Texture2D" uid="uid://cgdnmbrdpf177" path="res://Scenes/Menu/Buttons/button.png" id="2_5cx6j"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_dt80k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(464.75, 324.25)
+scale = Vector2(1.45164, 1.35031)
+texture = ExtResource("1_xip3u")
+
+[node name="SettingsButton" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 414.0
+offset_top = 336.0
+offset_right = 614.0
+offset_bottom = 536.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_5cx6j")
+
+[node name="LevelsButton" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 414.0
+offset_top = 211.0
+offset_right = 614.0
+offset_bottom = 411.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_5cx6j")
+
+[node name="LevelsLabel" type="Label" parent="."]
+offset_left = 438.0
+offset_top = 247.0
+offset_right = 486.0
+offset_bottom = 270.0
+text = "Levels"
+
+[node name="SettingsLabel" type="Label" parent="."]
+offset_left = 433.0
+offset_top = 372.0
+offset_right = 495.0
+offset_bottom = 395.0
+text = "Settings"
+
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="LevelsButton" to="." method="_on_levels_button_pressed"]

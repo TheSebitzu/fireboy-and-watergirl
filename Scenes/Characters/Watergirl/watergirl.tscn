@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvkefvtos65l3"]
+
+[ext_resource type="Script" path="res://Scenes/Characters/player.gd" id="1_0sbqd"]
+[ext_resource type="Texture2D" uid="uid://2p3dkknqf6bl" path="res://Scenes/Characters/Watergirl/watergirl.png" id="2_ytw04"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2vmpm"]
+radius = 7.0
+height = 36.0
+
+[node name="Watergirl" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_0sbqd")
+character = "water"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("2_ytw04")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 15)
+shape = SubResource("CapsuleShape2D_2vmpm")

@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://clhp30x8w3kxp"]
+
+[ext_resource type="Script" path="res://Scenes/game.gd" id="1_4nfex"]
+[ext_resource type="PackedScene" uid="uid://bw2ijt1xonk3c" path="res://Scenes/Levels/level_1.tscn" id="2_qaw8b"]
+[ext_resource type="PackedScene" uid="uid://c6a45kpyqyt8i" path="res://Scenes/Menu/settings.tscn" id="3_idjuh"]
+[ext_resource type="Script" path="res://Scenes/Menu/settings.gd" id="4_fqqsr"]
+[ext_resource type="PackedScene" uid="uid://dit6f6p5scp3b" path="res://Scenes/Menu/menu.tscn" id="4_qscby"]
+[ext_resource type="PackedScene" uid="uid://cjglgug3fiwlb" path="res://Scenes/Levels/level_2.tscn" id="5_q43tj"]
+[ext_resource type="PackedScene" uid="uid://boi4jodfm8aim" path="res://Scenes/Levels/level_3.tscn" id="6_1y4le"]
+[ext_resource type="Script" path="res://Scenes/Levels/level_x.gd" id="6_ad4kq"]
+[ext_resource type="PackedScene" uid="uid://dllpsuvi2wre4" path="res://Scenes/Levels/level_4.tscn" id="7_uup8y"]
+[ext_resource type="Texture2D" uid="uid://cgdnmbrdpf177" path="res://Scenes/Menu/Buttons/button.png" id="9_mv1v6"]
+[ext_resource type="FontFile" uid="uid://deo1wopkephyy" path="res://brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="12_kafjo"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_4nfex")
+
+[node name="Menu" parent="." instance=ExtResource("4_qscby")]
+
+[node name="Settings" parent="." instance=ExtResource("3_idjuh")]
+visible = false
+script = ExtResource("4_fqqsr")
+
+[node name="Level1" parent="." instance=ExtResource("2_qaw8b")]
+visible = false
+script = ExtResource("6_ad4kq")
+
+[node name="Level2" parent="." instance=ExtResource("5_q43tj")]
+visible = false
+script = ExtResource("6_ad4kq")
+
+[node name="Level3" parent="." instance=ExtResource("6_1y4le")]
+visible = false
+script = ExtResource("6_ad4kq")
+
+[node name="Level4" parent="." instance=ExtResource("7_uup8y")]
+visible = false
+script = ExtResource("6_ad4kq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="WinLabel" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -394.0
+offset_top = -25.5
+offset_right = 394.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("12_kafjo")
+theme_override_font_sizes/font_size = 50
+text = "Congrats, you won"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenuButton" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -464.0
+offset_top = -324.0
+offset_right = -264.0
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("9_mv1v6")
+
+[connection signal="pressed" from="CanvasLayer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnfkmoept0asm"]
+
+[ext_resource type="Script" path="res://Scenes/Death/death.gd" id="1_en8p2"]
+[ext_resource type="Texture2D" uid="uid://qj5avlmai2u6" path="res://Scenes/Death/fire.png" id="1_sjypc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_omi3f"]
+size = Vector2(16, 13)
+
+[node name="Fire" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_en8p2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sjypc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_omi3f")

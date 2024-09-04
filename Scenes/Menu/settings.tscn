@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6a45kpyqyt8i"]
+
+[ext_resource type="Texture2D" uid="uid://drx6hkfsahxom" path="res://Scenes/Menu/menu_bg.png" id="1_kroar"]
+[ext_resource type="PackedScene" uid="uid://3s1pfnefku3x" path="res://Scenes/Menu/Buttons/main_menu_button.tscn" id="2_yls5o"]
+
+[node name="Settings" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(464.75, 324.25)
+scale = Vector2(1.45164, 1.35031)
+texture = ExtResource("1_kroar")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 353.0
+offset_top = 287.0
+offset_right = 574.0
+offset_bottom = 342.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 1)
+
+[node name="HSlider" type="HSlider" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 371.0
+offset_top = 310.0
+offset_right = 558.0
+offset_bottom = 338.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 441.5
+offset_top = 290.0
+offset_right = 486.5
+offset_bottom = 313.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Audio"
+
+[node name="MainMenuButton" parent="." instance=ExtResource("2_yls5o")]
