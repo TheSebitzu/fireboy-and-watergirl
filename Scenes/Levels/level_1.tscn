@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bw2ijt1xonk3c"]
+[gd_scene load_steps=25 format=4 uid="uid://bw2ijt1xonk3c"]
 
 [ext_resource type="Texture2D" uid="uid://c3y2t2sdtsmrx" path="res://brackeys_platformer_assets/sprites/world_tileset.png" id="1_38xrq"]
 [ext_resource type="Script" path="res://Scenes/Levels/level_x.gd" id="1_f132i"]
@@ -226,6 +226,20 @@ font = ExtResource("7_t0ul8")
 [sub_resource type="LabelSettings" id="LabelSettings_wqfr5"]
 font = ExtResource("7_t0ul8")
 
+[sub_resource type="LabelSettings" id="LabelSettings_uxrmp"]
+font = ExtResource("7_t0ul8")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_0xv1a"]
+font = ExtResource("7_t0ul8")
+font_size = 15
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tuoqa"]
+font = ExtResource("7_t0ul8")
+font_size = 15
+font_color = Color(0, 0, 1, 1)
+
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("fireboy", "watergirl", "foreground", "win_label")]
 script = ExtResource("1_f132i")
 fireboy = NodePath("Players/Fireboy")
@@ -309,3 +323,28 @@ theme_override_font_sizes/font_size = 50
 text = "Congrats, you won"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PointsReminderLabel" type="Label" parent="."]
+visible = false
+offset_left = 261.0
+offset_top = 212.0
+offset_right = 666.0
+offset_bottom = 275.0
+text = "Collect all points"
+label_settings = SubResource("LabelSettings_uxrmp")
+
+[node name="FireScoreLabel" type="Label" parent="."]
+offset_left = 23.0
+offset_top = 72.0
+offset_right = 183.0
+offset_bottom = 107.0
+text = "Fire points: 0"
+label_settings = SubResource("LabelSettings_0xv1a")
+
+[node name="WaterScoreLabel" type="Label" parent="."]
+offset_left = 5.0
+offset_top = 104.0
+offset_right = 188.0
+offset_bottom = 139.0
+text = "Water points: 0"
+label_settings = SubResource("LabelSettings_tuoqa")

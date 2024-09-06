@@ -1,7 +1,8 @@
 extends Area2D
 
-signal door_entered
-signal door_exited
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,6 +16,11 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	body.exited()
 
+func closed():
+	anim.play("default")
+
+func open():
+	anim.play("opened")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

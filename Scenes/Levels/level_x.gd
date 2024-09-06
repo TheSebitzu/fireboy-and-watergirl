@@ -12,6 +12,11 @@ var point_target = 0
 @export var watergirl: Player
 @export var foreground: TileMapLayer
 @export var win_label: Label
+@onready var fire_door: Area2D = $Doors/FireDoor
+@onready var water_door: Area2D = $Doors/WaterDoor
+@onready var points_reminder_label: Label = $PointsReminderLabel
+@onready var fire_score_label: Label = $FireScoreLabel
+@onready var water_score_label: Label = $WaterScoreLabel
 
 
 # Called when the node enters the scene tree for the first time.
@@ -25,27 +30,32 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if fireboy.finish and watergirl.finish and (fireboy.points + watergirl.points == point_target):
+	if fireboy.finish and fireboy.points == point_target / 2:
+		fire_inside = true
+		fire_door.open()
+	else:
+		fire_inside = false
+		fire_door.closed()
+
+	if watergirl.finish and watergirl.points == point_target / 2:
+		water_inside = true
+		water_door.open()
+	else:
+		water_inside = false
+		water_door.closed()
+	
+	if fireboy.finish and fireboy.points != point_target / 2 or watergirl.finish and watergirl.points != point_target / 2:
+		points_reminder_label.show()
+	else:
+		points_reminder_label.hide()
+
+	if water_inside and fire_inside:
 		fireboy.can_move = false
 		watergirl.can_move = false
 		win_label.show()
 
-
-func _on_fire_door_body_entered(body: Node2D) -> void:
-	fire_inside = true
-
-func _on_fire_door_body_exited(body: Node2D) -> void:
-	fire_inside = false
-
-
-
-func _on_water_door_body_entered(body: Node2D) -> void:
-	water_inside = true
-
-
-func _on_water_door_body_exited(body: Node2D) -> void:
-	water_inside = false
-
+	fire_score_label.text = "Fire points: %s" %fireboy.points
+	water_score_label.text = "Water points: %s" %watergirl.points
 
 func _on_main_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Menu/menu.tscn")

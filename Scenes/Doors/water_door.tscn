@@ -7,25 +7,30 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2n5mc"]
 size = Vector2(68, 76)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_usnpd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjx5x"]
 atlas = ExtResource("1_wlrfr")
 region = Rect2(640, 0, 640, 703)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5i0bq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2npk6"]
 atlas = ExtResource("3_qjv3w")
 region = Rect2(640, 0, 640, 703)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_hdx0b"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_uviwy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_usnpd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5i0bq")
+"texture": SubResource("AtlasTexture_rjx5x")
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2npk6")
+}],
+"loop": true,
+"name": &"opened",
 "speed": 5.0
 }]
 
@@ -34,15 +39,23 @@ collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_tva4y")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="DoorSprite" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.11, 0.11)
 texture = ExtResource("1_wlrfr")
 region_enabled = true
 region_rect = Rect2(637, 0, 643, 703)
+
+[node name="OpenDoorSprite" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("3_qjv3w")
+region_enabled = true
+region_rect = Rect2(640, 0, 640, 704)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2n5mc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.11, 0.11)
-sprite_frames = SubResource("SpriteFrames_hdx0b")
+sprite_frames = SubResource("SpriteFrames_uviwy")
