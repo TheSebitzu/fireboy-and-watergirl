@@ -82,11 +82,11 @@ func _process(_delta: float) -> void:
 	if is_elev_pressed:
 		#elevator.position = Vector2(866, 170)
 		var tween = create_tween()
-		tween.tween_property(elevator, "position", Vector2(866, 170), 0.1).set_trans(Tween.TRANS_LINEAR)
+		tween.tween_property(elevator, "position", Vector2(866, 170), 0.05).set_trans(Tween.TRANS_LINEAR)
 	else:
 		#elevator.position = Vector2(866, 314)
 		var tween = create_tween()
-		tween.tween_property(elevator, "position", Vector2(866, 314), 0.1).set_trans(Tween.TRANS_LINEAR)
+		tween.tween_property(elevator, "position", Vector2(866, 314), 0.05).set_trans(Tween.TRANS_LINEAR)
 
 
 func _on_main_menu_button_pressed() -> void:
