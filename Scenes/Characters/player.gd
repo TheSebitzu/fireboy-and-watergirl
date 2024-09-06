@@ -11,6 +11,7 @@ const JUMP_VELOCITY = -400.0
 var points = 0
 var can_move = true
 var finish = false
+var alive = true
 
 func kill():
 	sprite_2d.texture = load("res://Scenes/Characters/smoke.png")
@@ -19,10 +20,12 @@ func kill():
 	tween.parallel().tween_property(sprite_2d, "scale", Vector2(0.3, 0.3), 1)
 	tween.parallel().tween_property(sprite_2d, "modulate:a", 0, 1.2)
 	can_move = false
+	alive = false
+
 
 func add_point():
 	points += 1
-	print(points)
+
 
 func entered():
 	finish = true
@@ -31,13 +34,11 @@ func exited():
 	finish = false
 
 func _physics_process(delta: float) -> void:
-	
-	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	if not can_move:
+	if not can_move and is_on_floor():
 		return
 		
 	# Handle jump.

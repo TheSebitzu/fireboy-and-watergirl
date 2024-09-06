@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://dit6f6p5scp3b"]
 
-[ext_resource type="Script" path="res://Scenes/Menu/menu.gd" id="1_dt80k"]
-[ext_resource type="Texture2D" uid="uid://drx6hkfsahxom" path="res://Scenes/Menu/menu_bg.png" id="1_xip3u"]
-[ext_resource type="Texture2D" uid="uid://cgdnmbrdpf177" path="res://Scenes/Menu/Buttons/button.png" id="2_5cx6j"]
+[ext_resource type="Script" path="res://Scenes/Menu/Main menu/menu.gd" id="1_3wru7"]
+[ext_resource type="Texture2D" uid="uid://drx6hkfsahxom" path="res://Scenes/Menu/menu_bg.png" id="2_ehq60"]
+[ext_resource type="Texture2D" uid="uid://cgdnmbrdpf177" path="res://Scenes/Menu/Buttons/button.png" id="3_lbnj0"]
 
 [node name="Menu" type="Node2D"]
-script = ExtResource("1_dt80k")
+script = ExtResource("1_3wru7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(464.75, 324.25)
 scale = Vector2(1.45164, 1.35031)
-texture = ExtResource("1_xip3u")
+texture = ExtResource("2_ehq60")
 
 [node name="SettingsButton" type="TextureButton" parent="."]
 anchors_preset = 8
@@ -27,7 +27,7 @@ grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("2_5cx6j")
+texture_normal = ExtResource("3_lbnj0")
 
 [node name="LevelsButton" type="TextureButton" parent="."]
 anchors_preset = 8
@@ -42,7 +42,7 @@ offset_bottom = 411.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("2_5cx6j")
+texture_normal = ExtResource("3_lbnj0")
 
 [node name="LevelsLabel" type="Label" parent="."]
 offset_left = 438.0

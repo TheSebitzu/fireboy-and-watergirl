@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://3s1pfnefku3x"]
 
 [ext_resource type="Texture2D" uid="uid://cgdnmbrdpf177" path="res://Scenes/Menu/Buttons/button.png" id="1_sv37a"]
-[ext_resource type="Script" path="res://Scenes/Menu/main_menu_button.gd" id="2_nryiy"]
+[ext_resource type="Script" path="res://Scenes/Menu/Main menu/main_menu_button.gd" id="2_nryiy"]
 
 [node name="MainMenuButton" type="TextureButton"]
 anchors_preset = 8

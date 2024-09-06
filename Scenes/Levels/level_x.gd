@@ -11,12 +11,14 @@ var point_target = 0
 @export var fireboy: Player
 @export var watergirl: Player
 @export var foreground: TileMapLayer
-@export var win_label: Label
+@export var win_screen: Control
 @onready var fire_door: Area2D = $Doors/FireDoor
 @onready var water_door: Area2D = $Doors/WaterDoor
 @onready var points_reminder_label: Label = $PointsReminderLabel
-@onready var fire_score_label: Label = $FireScoreLabel
-@onready var water_score_label: Label = $WaterScoreLabel
+@onready var fire_score_label: Label = $Points/FireScoreLabel
+@onready var water_score_label: Label = $Points/WaterScoreLabel
+@onready var lose_screen: Control = $LoseScreen
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -36,7 +38,7 @@ func _process(_delta: float) -> void:
 	else:
 		fire_inside = false
 		fire_door.closed()
-
+	
 	if watergirl.finish and watergirl.points == point_target / 2:
 		water_inside = true
 		water_door.open()
@@ -48,12 +50,19 @@ func _process(_delta: float) -> void:
 		points_reminder_label.show()
 	else:
 		points_reminder_label.hide()
-
+	
 	if water_inside and fire_inside:
 		fireboy.can_move = false
 		watergirl.can_move = false
-		win_label.show()
-
+		await get_tree().create_timer(0.3).timeout
+		win_screen.show()
+	
+	if not fireboy.alive or not watergirl.alive:
+		lose_screen.show()
+		fireboy.can_move = false
+		watergirl.can_move = false
+		await get_tree().create_timer(0.3).timeout
+	
 	fire_score_label.text = "Fire points: %s" %fireboy.points
 	water_score_label.text = "Water points: %s" %watergirl.points
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://bw2ijt1xonk3c"]
+[gd_scene load_steps=26 format=4 uid="uid://bw2ijt1xonk3c"]
 
 [ext_resource type="Texture2D" uid="uid://c3y2t2sdtsmrx" path="res://brackeys_platformer_assets/sprites/world_tileset.png" id="1_38xrq"]
 [ext_resource type="Script" path="res://Scenes/Levels/level_x.gd" id="1_f132i"]
@@ -226,6 +226,10 @@ font = ExtResource("7_t0ul8")
 [sub_resource type="LabelSettings" id="LabelSettings_wqfr5"]
 font = ExtResource("7_t0ul8")
 
+[sub_resource type="LabelSettings" id="LabelSettings_4n421"]
+font_size = 35
+font_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_uxrmp"]
 font = ExtResource("7_t0ul8")
 font_size = 30
@@ -240,12 +244,12 @@ font = ExtResource("7_t0ul8")
 font_size = 15
 font_color = Color(0, 0, 1, 1)
 
-[node name="Level1" type="Node2D" node_paths=PackedStringArray("fireboy", "watergirl", "foreground", "win_label")]
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("fireboy", "watergirl", "foreground", "win_screen")]
 script = ExtResource("1_f132i")
 fireboy = NodePath("Players/Fireboy")
 watergirl = NodePath("Players/Watergirl")
 foreground = NodePath("Harta/Foreground")
-win_label = NodePath("WinLabel")
+win_screen = NodePath("WinScreen")
 
 [node name="Harta" type="Node2D" parent="."]
 
@@ -305,22 +309,67 @@ position = Vector2(55, 481)
 
 [node name="MainMenuButton" parent="." instance=ExtResource("12_wk1il")]
 
-[node name="WinLabel" type="Label" parent="."]
+[node name="WinScreen" type="Control" parent="."]
 visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="WinScreen"]
+layout_mode = 0
+offset_right = 927.0
+offset_bottom = 646.0
+
+[node name="WinLabel" type="Label" parent="WinScreen"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -394.0
-offset_top = -25.5
-offset_right = 394.0
-offset_bottom = 25.5
+offset_left = 52.0
+offset_top = 296.0
+offset_right = 840.0
+offset_bottom = 347.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("13_m0ede")
 theme_override_font_sizes/font_size = 50
 text = "Congrats, you won"
+label_settings = SubResource("LabelSettings_4n421")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoseScreen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="LoseScreen"]
+layout_mode = 0
+offset_right = 927.0
+offset_bottom = 646.0
+
+[node name="LoseLabel" type="Label" parent="LoseScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 52.0
+offset_top = 296.0
+offset_right = 840.0
+offset_bottom = 347.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_m0ede")
+theme_override_font_sizes/font_size = 50
+text = "I'm sorry, you lost"
+label_settings = SubResource("LabelSettings_4n421")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -333,7 +382,13 @@ offset_bottom = 275.0
 text = "Collect all points"
 label_settings = SubResource("LabelSettings_uxrmp")
 
-[node name="FireScoreLabel" type="Label" parent="."]
+[node name="Points" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FireScoreLabel" type="Label" parent="Points"]
 offset_left = 23.0
 offset_top = 72.0
 offset_right = 183.0
@@ -341,7 +396,7 @@ offset_bottom = 107.0
 text = "Fire points: 0"
 label_settings = SubResource("LabelSettings_0xv1a")
 
-[node name="WaterScoreLabel" type="Label" parent="."]
+[node name="WaterScoreLabel" type="Label" parent="Points"]
 offset_left = 5.0
 offset_top = 104.0
 offset_right = 188.0

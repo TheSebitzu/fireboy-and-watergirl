@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 
 
 func _on_settings_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Menu/settings.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Menu/Settings/settings.tscn")
 
 func _on_levels_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Menu/levels.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Menu/LevelsMenu/levels.tscn")
