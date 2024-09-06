@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvwxi52ipbnpf"]
+
+[ext_resource type="Texture2D" uid="uid://xh1qwy6yt7ss" path="res://Scenes/Elevator/elevator_button.png" id="1_0l7fm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_116vs"]
+size = Vector2(32, 11)
+
+[node name="ElevatorButton" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_0l7fm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10.5)
+shape = SubResource("RectangleShape2D_116vs")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
