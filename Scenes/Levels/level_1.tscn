@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://bw2ijt1xonk3c"]
+[gd_scene load_steps=28 format=4 uid="uid://bw2ijt1xonk3c"]
 
 [ext_resource type="Texture2D" uid="uid://c3y2t2sdtsmrx" path="res://brackeys_platformer_assets/sprites/world_tileset.png" id="1_38xrq"]
 [ext_resource type="Script" path="res://Scenes/Levels/level_x.gd" id="1_f132i"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cvkefvtos65l3" path="res://Scenes/Characters/Watergirl/watergirl.tscn" id="11_l48qo"]
 [ext_resource type="PackedScene" uid="uid://3s1pfnefku3x" path="res://Scenes/Menu/Buttons/main_menu_button.tscn" id="12_wk1il"]
 [ext_resource type="FontFile" uid="uid://deo1wopkephyy" path="res://brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="13_m0ede"]
+[ext_resource type="PackedScene" uid="uid://c5ov7xn5vpmxu" path="res://Scenes/Menu/Buttons/restart_button.tscn" id="15_uuv5h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tyynp"]
 texture = ExtResource("1_38xrq")
@@ -230,6 +231,9 @@ font = ExtResource("7_t0ul8")
 font_size = 35
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_0dmog"]
+font_color = Color(1, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_uxrmp"]
 font = ExtResource("7_t0ul8")
 font_size = 30
@@ -373,6 +377,29 @@ label_settings = SubResource("LabelSettings_4n421")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="RestartLabel" type="Label" parent="LoseScreen"]
+layout_mode = 0
+offset_left = 437.0
+offset_top = 383.0
+offset_right = 495.0
+offset_bottom = 406.0
+text = "Restart"
+label_settings = SubResource("LabelSettings_0dmog")
+
+[node name="RestartButton" parent="LoseScreen" instance=ExtResource("15_uuv5h")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 426.0
+offset_top = 348.0
+offset_right = 626.0
+offset_bottom = 548.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="PointsReminderLabel" type="Label" parent="."]
 visible = false
 offset_left = 261.0
@@ -389,6 +416,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="FireScoreLabel" type="Label" parent="Points"]
+layout_mode = 0
 offset_left = 23.0
 offset_top = 72.0
 offset_right = 183.0
@@ -397,6 +425,7 @@ text = "Fire points: 0"
 label_settings = SubResource("LabelSettings_0xv1a")
 
 [node name="WaterScoreLabel" type="Label" parent="Points"]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 104.0
 offset_right = 188.0

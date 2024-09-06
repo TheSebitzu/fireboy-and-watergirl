@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0euf2jf6dgw5"]
+[gd_scene load_steps=7 format=3 uid="uid://b0euf2jf6dgw5"]
 
 [ext_resource type="Script" path="res://Scenes/Menu/LevelsMenu/levels.gd" id="1_kfk4e"]
 [ext_resource type="Texture2D" uid="uid://drx6hkfsahxom" path="res://Scenes/Menu/menu_bg.png" id="2_vg5h8"]
 [ext_resource type="Texture2D" uid="uid://cgdnmbrdpf177" path="res://Scenes/Menu/Buttons/button.png" id="3_drl5x"]
 [ext_resource type="PackedScene" uid="uid://3s1pfnefku3x" path="res://Scenes/Menu/Buttons/main_menu_button.tscn" id="4_sjnqi"]
+[ext_resource type="FontFile" uid="uid://deo1wopkephyy" path="res://brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="5_5snuf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pq4e7"]
+font_size = 30
+font_color = Color(0, 0, 0, 1)
 
 [node name="Levels" type="Node2D"]
 script = ExtResource("1_kfk4e")
@@ -118,6 +123,38 @@ offset_bottom = 242.0
 text = "Level 4"
 
 [node name="MainMenuButton" parent="." instance=ExtResource("4_sjnqi")]
+
+[node name="LevelErrorPrompt" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="LevelErrorPrompt"]
+layout_mode = 0
+offset_right = 927.0
+offset_bottom = 646.0
+
+[node name="LevelErrorLabel" type="Label" parent="LevelErrorPrompt"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 52.0
+offset_top = 296.0
+offset_right = 840.0
+offset_bottom = 347.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_5snuf")
+theme_override_font_sizes/font_size = 50
+text = "Please complete previous level"
+label_settings = SubResource("LabelSettings_pq4e7")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Level1/Level1Button" to="." method="_on_level_1_button_pressed"]
 [connection signal="pressed" from="Level2/Level2Button" to="." method="_on_level_2_button_pressed"]
