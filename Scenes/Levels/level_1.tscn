@@ -327,6 +327,7 @@ tile_set = SubResource("TileSet_g7531")
 
 [node name="Elevator" parent="Harta" instance=ExtResource("8_syymk")]
 position = Vector2(866, 314)
+target_pos = Vector2(866, 170)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Harta/Elevator"]
 libraries = {
@@ -334,13 +335,15 @@ libraries = {
 }
 autoplay = "RESET"
 
-[node name="DownElevatorButton" parent="Harta" instance=ExtResource("17_vcbb6")]
+[node name="DownElevatorButton" parent="Harta" node_paths=PackedStringArray("target") instance=ExtResource("17_vcbb6")]
 position = Vector2(721, 304)
 collision_mask = 6
+target = NodePath("../Elevator")
 
-[node name="UpElevatorButton2" parent="Harta" instance=ExtResource("17_vcbb6")]
+[node name="UpElevatorButton2" parent="Harta" node_paths=PackedStringArray("target") instance=ExtResource("17_vcbb6")]
 position = Vector2(594, 80)
 collision_mask = 6
+target = NodePath("../Elevator")
 
 [node name="TutorialLabels" type="Control" parent="."]
 layout_mode = 3
@@ -380,7 +383,7 @@ position = Vector2(291, 92)
 position = Vector2(57, 576)
 
 [node name="Watergirl" parent="Players" instance=ExtResource("11_l48qo")]
-position = Vector2(55, 481)
+position = Vector2(665, 285)
 
 [node name="MainMenuButton" parent="." instance=ExtResource("12_wk1il")]
 

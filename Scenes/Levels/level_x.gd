@@ -1,12 +1,12 @@
 extends Node2D
 
+const ELEVATOR_SPEED = 100
 
 var fire_inside = false
 var water_inside = false
 var point_target = 0
 var scene: String
 var rm = false
-var is_elev_pressed = false
 
 
 
@@ -79,29 +79,26 @@ func _process(_delta: float) -> void:
 	fire_score_label.text = "Fire points: %s" %fireboy.points
 	water_score_label.text = "Water points: %s" %watergirl.points
 	
-	if is_elev_pressed:
-		#elevator.position = Vector2(866, 170)
-		var tween = create_tween()
-		tween.tween_property(elevator, "position", Vector2(866, 170), 0.05).set_trans(Tween.TRANS_LINEAR)
-	else:
-		#elevator.position = Vector2(866, 314)
-		var tween = create_tween()
-		tween.tween_property(elevator, "position", Vector2(866, 314), 0.05).set_trans(Tween.TRANS_LINEAR)
 
 
 func _on_main_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Menu/menu.tscn")
 
 
-func _on_down_elevator_button_body_entered(body: Node2D) -> void:
-	is_elev_pressed = true
-
-func _on_up_elevator_button_2_body_entered(body: Node2D) -> void:
-	is_elev_pressed = true
-
-
-func _on_down_elevator_button_body_exited(body: Node2D) -> void:
-	is_elev_pressed = false
-
-func _on_up_elevator_button_2_body_exited(body: Node2D) -> void:
-	is_elev_pressed = false
+#func _on_down_elevator_button_body_entered(body: Node2D) -> void:
+	#var tween = create_tween()
+	#tween.tween_property(elevator, "position", Vector2(866, 170), )
+#
+#
+#func _on_up_elevator_button_2_body_entered(body: Node2D) -> void:
+	#var tween = create_tween()
+	#tween.tween_property(elevator, "position", Vector2(866, 170), )
+#
+#
+#func _on_down_elevator_button_body_exited(body: Node2D) -> void:
+	#var tween = create_tween()
+	#tween.tween_property(elevator, "position", Vector2(866, 314), )
+#
+#func _on_up_elevator_button_2_body_exited(body: Node2D) -> void:
+	#var tween = create_tween()
+	#tween.tween_property(elevator, "position", Vector2(866, 314), )
